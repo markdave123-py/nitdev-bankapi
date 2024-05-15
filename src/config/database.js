@@ -1,12 +1,13 @@
 import mysql from 'mysql'
+import { config } from './env.js'
 
 
 const connection = mysql.createPool({
     connectionLimit: 100,
-    host: 'localhost',
-    user: 'root',
-    password: 'zyxwvu09876',
-    database: 'BANKAPI'
+    host: config.db.host,
+    user: config.db.user,
+    password: config.db.password,
+    database: config.db.database
 })
 
 
