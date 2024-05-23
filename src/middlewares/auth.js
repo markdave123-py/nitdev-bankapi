@@ -20,7 +20,6 @@ export const auth = (req, res, next) => {
         if (err) {
             return res.status(403).json({ error: 'Forbidden, you cant access this endpoint' });
         }
-        console.log('user', user)
         req.user = user;
 
         next();

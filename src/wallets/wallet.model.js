@@ -4,7 +4,7 @@ export const createWalletTable = async () => {
   try {
       const query = `CREATE TABLE IF NOT EXISTS wallets (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        amount DOUBLE PRECISION CHECK (amount >= 0) NOT NULL,
+        amount DOUBLE PRECISION CHECK (amount >= 0) NOT NULL DEFAULT 0,
         currency VARCHAR(3) CHECK (currency IN ('USD', 'NGN')) NOT NULL,
         userID INT NOT NULL,
         FOREIGN KEY (userID) REFERENCES users(id),

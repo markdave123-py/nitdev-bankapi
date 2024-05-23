@@ -4,6 +4,9 @@ import { userRouter } from './users/user.routes.js';
 import { config } from './config/env.js';
 import { createWalletTable } from './wallets/wallet.model.js';
 import { auth } from './middlewares/auth.js';
+import { walletRouter } from './wallets/wallet.route.js';
+import { createDepositTable } from './deposit/deposit.model.js';
+import { depositRouter } from './deposit/deposit.routes.js'
 
 const app = express();
 
@@ -19,11 +22,14 @@ app.get('/', auth, (req, res) =>{
 });
 
 app.use("/user", userRouter);
+app.use("/wallet", walletRouter)
+app.use("/deposit", depositRouter)
 
 
 
 app.listen(config.port, async () => {
     await createUserTable();
     await createWalletTable();
+    await createDepositTable();
     console.log(`server running on port ${config.port}`)
 })

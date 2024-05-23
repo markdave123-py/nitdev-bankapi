@@ -1,5 +1,5 @@
-import { signupSchema } from "../utils/joi.js";
-import { findUser, createUser } from "./user.services.js";
+import { signupSchema } from "../validators/auth.js";
+import { findUser, createUser } from "./user.service.js";
 import { hashPassword, comparePassword } from "../utils/bcrypt.js";
 import { genToken } from "../utils/jwt.js";
 import { sanitize } from "../utils/sanitizer.js";
